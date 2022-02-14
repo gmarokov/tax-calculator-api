@@ -13,6 +13,7 @@ builder.Services.AddEndpointsApiExplorer()
     .AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>))
     .AddTransient<ExceptionHandlerMiddleware>()
     .AddValidatorsFromAssembly(Assembly.GetExecutingAssembly())
+    .AddMemoryCache()
     .AddControllers();
 
 var app = builder.Build();
